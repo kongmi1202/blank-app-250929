@@ -1,7 +1,29 @@
+
 import streamlit as st
 import numpy as np
+import os
+
 
 st.set_page_config(page_title="음정 독보력 훈련", layout="centered")
+
+# NanumGothic-Regular.ttf 폰트 경로
+font_path = os.path.join(os.path.dirname(__file__), "..", "fonts", "NanumGothic-Regular.ttf")
+
+# CSS로 한글 폰트 적용
+st.markdown(f"""
+	<style>
+	@font-face {{
+		font-family: 'NanumGothic';
+		src: url('file://{font_path}') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}}
+	html, body, [class^="css"]  {{
+		font-family: 'NanumGothic', sans-serif !important;
+	}}
+	</style>
+""", unsafe_allow_html=True)
+
 st.title("음정 독보력 향상 앱")
 st.markdown("""
 랜덤으로 음정을 들려주고, 사용자가 음 이름을 맞추는 훈련 앱입니다. 
